@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PositionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +25,5 @@ Route::get('/register', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('employees', UserController::class);
+Route::resource('users', UserController::class);
+Route::resource('positions', PositionController::class);

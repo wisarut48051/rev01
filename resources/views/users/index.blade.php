@@ -20,21 +20,35 @@
             <td>Name</td>
             <td>Surname</td>
             <td>Sex</td>
+            <td>Department</td>
+            <td>Position</td>
             <td>Salary</td>
             <td>Birthdate</td>
             <td>E-Mail</td>
             <td>Action</td>
         </tr>
         
-        @foreach ($employees as $user)
+        @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->surname }}</td>
                 <td>{{ $user->sex }}</td>
+                <td>{{ $user->department }}</td>
+                <td>{{ $user->position_id }}</td>
                 <td>{{ $user->salary }}</td>
                 <td>{{ $user->birthdate }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                        Delete
+                    </button>
+                    </form>
+                </td>
             </tr> 
             @endforeach
         </table>

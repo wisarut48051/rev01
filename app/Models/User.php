@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'surname',
         'position_id',
+        'department',
         'sex',
         'address',
         'salary',

@@ -20,8 +20,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/') }}" style="font-size:30px;">
+                    Company
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -30,8 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
+                                <li class="nav-item" style="padding-left:50px;font-size:18px;">
+                                    <a class="nav-link" href="{{ route('users.index') }}">{{ __('Employees') }}</a>
+                                </li>
+
+                                <li class="nav-item" style="padding-left:30px;font-size:18px;">
+                                    <a class="nav-link" href="{{ route('positions.index') }}">{{ __('Position') }}</a>
                                 </li>
                     </ul>
 
@@ -46,9 +50,6 @@
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Add Employee</a>
-                                </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">

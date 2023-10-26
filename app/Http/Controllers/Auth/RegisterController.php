@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'sex' => ['required', 'string', 'max:10'],
             'address' => ['required', 'string', 'max:255'],
+            'department' => ['required', 'string', 'max:255'],
             'salary' => ['required', 'integer'],
             'birthdate' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -75,12 +76,11 @@ class RegisterController extends Controller
             'surname' => $data['surname'],
             'sex' => $data['sex'],
             'address' => $data['address'],
+            'department' => $data['department'],
             'salary' => $data['salary'],
             'birthdate' => $data['birthdate'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        return redirect()->route('employees.index');
     }
 }
